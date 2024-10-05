@@ -7,7 +7,7 @@ export const StyledFormControl = styled(FormControl)(({ theme }) => ({
     margin: theme.spacing(1), minWidth: 120, marginBottom: '30px',
 }));
 
-export const loading = styled('div')(({ theme }) => ({
+export const StyledLoading = styled('div')(({ theme }) => ({
     height: '600px', display: 'flex', justifyContent: 'center', alignItems: 'center',
 }));
 

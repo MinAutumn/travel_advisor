@@ -1,5 +1,3 @@
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
-import { Paper } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
 //makeStyles deprecated https://mui.com/system/styles/basics/
