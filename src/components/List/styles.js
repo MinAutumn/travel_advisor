@@ -1,7 +1,6 @@
 import { makeStyles } from '@mui/styles';
 import { styled, alpha } from '@mui/material/styles';
-import FormControl from '@mui/material/FormControl';
-import Grid from '@mui/material/Grid';
+import { Grid, FormControl } from '@mui/material';
 
 export const StyledFormControl = styled(FormControl)(({ theme }) => ({
     margin: theme.spacing(1), minWidth: 120, marginBottom: '30px',

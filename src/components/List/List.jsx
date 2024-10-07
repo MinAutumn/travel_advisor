@@ -5,22 +5,21 @@ import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, 
 import {StyledFormControl, Container, StyledGrid, StyledLoading} from './styles';
 import PlaceDetails from '../PlaceDetails/PlaceDetails';
 
-const List = ({ places, childClicked, isLoading }) => {
+const List = ({ places, childClicked, isLoading, type, setType, rating, setRating }) => {
     //const classes = useStyles();
-    //get and set state
-    const [ type, setType ] = useState('restaurants');
-    const [ rating, setRating ] = useState('');
     const [ elRefs, setElRefs ] = useState([]);
+
+    //console.log({childClicked});
     
+    //scroll into place details is still not working yet
     useEffect(() => {
-        const refs = Array(places?.length).fill().map((_,i) => elRefs[i] || createRef());
-        setElRefs(refs);
+        setElRefs((refs) => Array(places?.length).fill().map((_, i) => refs[i] || createRef()));
     }, [places]);
 
     //return list of places based on type and rating
     return (
         <Container>
-            <Typography variant="h4">Restaurants, Hotels & Attractions around you</Typography>
+            <Typography variant="h4">Restaurants & Attractions around you</Typography>
             {isLoading ? (
                 <StyledLoading>
                     <CircularProgress size='5rem' />
@@ -31,7 +30,6 @@ const List = ({ places, childClicked, isLoading }) => {
                         <InputLabel>Type</InputLabel>
                         <Select value={type} onChange={(e) => setType(e.target.value)}>
                             <MenuItem value="restaurants">Restaurants</MenuItem>
-                            <MenuItem value="hotels">Hotels</MenuItem>
                             <MenuItem value="attractions">Attractions</MenuItem>
                         </Select>
                     </StyledFormControl>
@@ -48,9 +46,9 @@ const List = ({ places, childClicked, isLoading }) => {
                         {places?.map((place, i) => (
                             <Grid item key={i} xs={12}>
                                 <PlaceDetails 
-                                    place={place}
-                                    selected={Number(childClicked) === i}
+                                    selected={Number(childClicked) === i} 
                                     refProp={elRefs[i]} 
+                                    place={place} 
                                 />
                             </Grid>
                         ))}

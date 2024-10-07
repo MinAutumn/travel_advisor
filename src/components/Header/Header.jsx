@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Autocomplete } from '@react-google-maps/api';
 import { AppBar, Toolbar, Typography, InputBase, Box, createTheme } from "@mui/material";
 import IconButton from '@mui/material/IconButton';
@@ -8,7 +8,16 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Search, SearchIconWrapper, StyledInputBase } from './styles';
 
 //Header
-const Header = () => {
+const Header = ({setCoordinates}) => {
+  const [autoComplete, setAutoComplete] = useState(null);
+  const onLoad = (autoC) => setAutoComplete(autoC);
+
+  const onPlaceChanged = () => {
+    const lat = autoComplete.getPlace().geometry.location.lat();
+    const lng = autoComplete.getPlace().geometry.location.lng();
+
+    setCoordinates({lat, lng});
+  }
 
     return (
         
@@ -32,15 +41,17 @@ const Header = () => {
             >
               Travel Advisor
             </Typography>
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search places"
-                inputProps={{ 'aria-label': 'search' }}
-              />
-            </Search>
+            <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
+              <Search>
+                <SearchIconWrapper>
+                  <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                  placeholder="Search places"
+                  inputProps={{ 'aria-label': 'search' }}
+                />
+              </Search>
+            </Autocomplete>
           </Toolbar>
         </AppBar>
       </Box>

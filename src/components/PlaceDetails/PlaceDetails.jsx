@@ -12,7 +12,8 @@ import useStyles from './styles';
 const PlaceDetails = ({ place, selected, refProp }) => {
     const classes = useStyles();
 
-    if(selected) refProp?.current?.scrollIntoView({ behavior: 'smooth', block:'start'})
+    //scroll into details of selected place is not working yet
+    if (selected) refProp?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     return (
         <Card elevation={6}>
@@ -58,11 +59,9 @@ const PlaceDetails = ({ place, selected, refProp }) => {
                     <Button size='small'color='primary' onClick={() => window.open(place.web_url, '_blank')}>
                         Trip Advisor
                     </Button>
-                    {place?.website && (
-                        <Button size='small'color='primary' onClick={() => window.open(place.website, '_blank')}>
-                        Website
-                        </Button>  
-                    )}
+                    <Button size='small'color='primary' onClick={() => window.open(place.website, '_blank')}>
+                    Website
+                    </Button>
                 </CardActions>
             </CardContent>
         </Card>
