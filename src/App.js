@@ -32,7 +32,7 @@ const App = () => {
         setFilteredPlaces(filteredPlaces);
     }, [rating]);
     
-    //get places and details with filters
+    //get the details of places with filters
     useEffect(() => {
         if (bounds.sw && bounds.ne) {
             setIsLoading(true);
