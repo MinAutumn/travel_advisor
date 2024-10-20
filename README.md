@@ -1,3 +1,7 @@
+# Deployed using netlify
+You can check this project from the link below
+https://traveladvisormrk.netlify.app/
+
 ## Available Scripts
 
 First, to install dependencies, in the project directory you can run
