@@ -46,7 +46,7 @@ const App = () => {
         }
     }, [type, bounds]);
 
-    // console.log({places});
+    console.log({places});
 
     return (
         <>
