@@ -1,3 +1,4 @@
+
 # Deployed using netlify
 You can check this project from the link below
 https://traveladvisormrk.netlify.app/
@@ -9,7 +10,6 @@ First, to install dependencies, in the project directory you can run
 ### `npm install --legacy-peer-deps`
 
 Since some dependencies are deprecated, `--legacy-peer-deps` is needed.
-In the project directory, you can run:
 
 ### `npm start`
 
