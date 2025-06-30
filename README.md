@@ -1,7 +1,7 @@
 
 # Deployed using netlify
 You can check this project from the link below
-https://traveladvisormrk.netlify.app/
+https://travel-advisor-mrk.netlify.app/
 
 ## Available Scripts
 
